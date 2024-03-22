@@ -7,6 +7,7 @@ public class DiceRandomForce : MonoBehaviour
     public float minRandomForce;
 
     public float maxRandomForce;
+    public int diceFaceNumber;
 
     private float forceX, forceY, forceZ;
     private Rigidbody m_Rigidbody;
