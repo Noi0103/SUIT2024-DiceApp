@@ -73,6 +73,7 @@ crashlytics-build.properties
 
 # linux distro
 /result
+/.idea
 
 # blender backup file
 *.blend1
