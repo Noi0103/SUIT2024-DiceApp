@@ -25,6 +25,15 @@ public class DiceRandomForce : MonoBehaviour
             m_Rigidbody.useGravity = true;
             RollDice();
         }
+
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.phase == TouchPhase.Ended)
+            {
+                m_Rigidbody.useGravity = true;
+                RollDice();
+            }
+        }
     }
     
     /// <summary>

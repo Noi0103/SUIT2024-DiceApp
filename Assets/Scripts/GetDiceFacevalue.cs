@@ -7,9 +7,17 @@ public class GetDiceFacevalue : MonoBehaviour
 {
     // Start is called before the first frame update
     private DiceRandomForce dice;
+    private Camera mainCamera;
+    private GameObject cameraReference;
     void Start()
     {
-        dice = FindObjectOfType<DiceRandomForce>();
+        //dice = FindObjectOfType<DiceRandomForce>();
+        
+        //if (GetComponent<Camera>() != null)
+        //{
+        //    cameraReference.transform = GetComponent<Camera>().transform.Find("CameraReference");
+        //   GetComponent<Camera>().transform.position = cameraReference.transform.position;
+        //}
     }
     
     /// <summary>
