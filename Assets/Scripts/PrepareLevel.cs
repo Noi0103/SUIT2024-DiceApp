@@ -7,7 +7,10 @@ using UnityEngine;
 public class PrepareLevel : MonoBehaviour
 {
     private GameOptions _options;
-    public GameObject dicePrefab;
+    private GameObject _dicePrefab;
+    public GameObject dicePrefab_d6;
+    public GameObject dicePrefab_d10;
+    public GameObject dicePrefab_d20;
     public GameObject spawnAreaPlane;
     public float spawnHeight = 3.5f;
     private void Awake()
@@ -16,7 +19,20 @@ public class PrepareLevel : MonoBehaviour
         Debug.Log(_options.diceCount);
         Debug.Log(_options.diceType);
         
-        
+        switch (_options.diceType)
+        {
+            case 6:
+                _dicePrefab = dicePrefab_d6;
+                break;
+            case 10:
+                _dicePrefab = dicePrefab_d10;
+                break;
+            case 20:
+                _dicePrefab = dicePrefab_d20;
+                break;
+        }
+
+
         // get spawn plane edge coordinates
         Vector3 planeSize = spawnAreaPlane.GetComponent<Renderer>().bounds.size;
         Vector3 planePosition = spawnAreaPlane.transform.position;
@@ -53,7 +69,7 @@ public class PrepareLevel : MonoBehaviour
         {
             // spawn and put dices in list
             Debug.Log(spawnLocations[i]);
-            allDices.Add(Instantiate(dicePrefab, spawnLocations[i], Quaternion.identity));
+            allDices.Add(Instantiate(_dicePrefab, spawnLocations[i], Quaternion.identity));
             Rigidbody rb = allDices[i].AddComponent<Rigidbody>();
             rb.useGravity = false;
             allDices[i].AddComponent<BoxCollider>();
