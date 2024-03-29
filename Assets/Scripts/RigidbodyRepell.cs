@@ -1,10 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class RigidbodyRepellLocalY : MonoBehaviour
 {
-    public float repelForce = 10f;
+    [FormerlySerializedAs("repelForce")] public float repellForce = 5f;
+    public bool negativeZAxis;
+
+    private void Awake()
+    {
+        if (negativeZAxis)
+        {
+            repellForce = repellForce * -1;
+        }
+    }
 
     /// <summary>
     /// repell the incoming rigidbody object in the local y direction when collision occurs
@@ -17,8 +28,8 @@ public class RigidbodyRepellLocalY : MonoBehaviour
 
         if (otherRigidbody != null)
         {
-            Vector3 repelDirection = transform.up; // Use the local y axis as the repel direction
-            otherRigidbody.AddForce(repelDirection * repelForce, ForceMode.Impulse);
+            Vector3 repelDirection = transform.right; // Use the local z axis as the repel direction
+            otherRigidbody.AddForce(repelDirection * repellForce, ForceMode.Impulse);
         }
     }
 }
