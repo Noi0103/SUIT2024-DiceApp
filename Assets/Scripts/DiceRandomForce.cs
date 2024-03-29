@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class DiceRandomForce : MonoBehaviour
 {
-    public float minRandomForce;
-
-    public float maxRandomForce;
+    public float minRandomForce = -0.5f;
+    public float maxRandomForce = 0.5f;
     public int diceFaceNumber;
 
     private float forceX, forceY, forceZ;

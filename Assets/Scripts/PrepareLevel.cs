@@ -72,10 +72,11 @@ public class PrepareLevel : MonoBehaviour
             allDices.Add(Instantiate(_dicePrefab, spawnLocations[i], Quaternion.identity));
             Rigidbody rb = allDices[i].AddComponent<Rigidbody>();
             rb.useGravity = false;
-            allDices[i].AddComponent<BoxCollider>();
+            
+            // throw dice
             DiceRandomForce forceScript = allDices[i].AddComponent<DiceRandomForce>();
-            forceScript.maxRandomForce = 5f;
-            forceScript.minRandomForce = 0.2f;
+            forceScript.maxRandomForce = 1f;
+            forceScript.minRandomForce = -1f;
 
         }
         
