@@ -5,8 +5,11 @@ using UnityEngine;
 using Directory = UnityEngine.Windows.Directory;
 using File = UnityEngine.Windows.File;
 
-// https://stackoverflow.com/questions/40965645/what-is-the-best-way-to-save-game-state/40966346#40966346
-// making savefiles easier
+/// <summary>
+/// making savefiles easier
+/// used for data persistence across scenes
+/// https://stackoverflow.com/questions/40965645/what-is-the-best-way-to-save-game-state/40966346#40966346 
+/// </summary>
 public class DataSaver
 {
     //Save Data
@@ -24,7 +27,6 @@ public class DataSaver
         {
             Directory.CreateDirectory(Path.GetDirectoryName(tempPath));
         }
-        //Debug.Log(path);
 
         try
         {

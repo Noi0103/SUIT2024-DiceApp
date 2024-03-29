@@ -2,29 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// input in the main level to throw dice
+/// </summary>
 public class DiceRandomForce : MonoBehaviour
 {
-    public float minRandomForce = -0.5f;
-    public float maxRandomForce = 0.5f;
+    public float minRandomForce = -1f;
+    public float maxRandomForce = 1f;
     public int diceFaceNumber;
 
     private float forceX, forceY, forceZ;
     private Rigidbody m_Rigidbody;
-    // Start is called before the first frame update
+    
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
+    
     void Update()
-    {
+    {   
+        // pc input
         if (Input.GetKey("up"))
         {
             m_Rigidbody.useGravity = true;
             RollDice();
         }
-
+        
+        // android touch input
         foreach (Touch touch in Input.touches)
         {
             if (touch.phase == TouchPhase.Ended)

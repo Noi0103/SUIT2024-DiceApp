@@ -32,7 +32,6 @@ public class PrepareLevel : MonoBehaviour
                 break;
         }
 
-
         // get spawn plane edge coordinates
         Vector3 planeSize = spawnAreaPlane.GetComponent<Renderer>().bounds.size;
         Vector3 planePosition = spawnAreaPlane.transform.position;
@@ -40,7 +39,6 @@ public class PrepareLevel : MonoBehaviour
         Vector3 pointNegative = new Vector3(planePosition.x - planeSize.x / 2, 0, planePosition.z - planeSize.z / 2);
         Debug.Log("pointPositive"+pointPositive);
         Debug.Log("pointNegative"+pointNegative);
-        
         Debug.Log(Vector3.Distance(new Vector3(pointPositive.x,0,0), new Vector3(pointNegative.x,0,0)));
         
         // calculate the spacing between points
@@ -55,6 +53,7 @@ public class PrepareLevel : MonoBehaviour
         {
             for (int j = 0; j < _options.diceCount; j++)
             {
+                // TODO this does not work as intended (its a spaced line and not a grid since i run out of diceCount)
                 float xCoord = pointNegative.x + i * xSpacing;
                 float zCoord = pointNegative.z + j * zSpacing;
                 Vector3 point = new Vector3(xCoord, spawnHeight, zCoord);
@@ -62,7 +61,6 @@ public class PrepareLevel : MonoBehaviour
                 spawnLocations.Add(point);
             }
         }
-        
         
         List<GameObject> allDices = new List<GameObject>();
         for (int i = 0; i < _options.diceCount; i++)
@@ -73,17 +71,12 @@ public class PrepareLevel : MonoBehaviour
             Rigidbody rb = allDices[i].AddComponent<Rigidbody>();
             rb.useGravity = false;
             
-            // throw dice
+            // make dice thowable
             DiceRandomForce forceScript = allDices[i].AddComponent<DiceRandomForce>();
             forceScript.maxRandomForce = 1f;
             forceScript.minRandomForce = -1f;
 
         }
-        
-    }
-
-    private void SpawnDiceObjects(GameOptions option)
-    {
         
     }
 }

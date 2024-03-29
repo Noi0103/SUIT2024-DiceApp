@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 	[SerializeField] private TMP_Dropdown inputDiceType;
 	[SerializeField] private TMP_InputField inputDiceCount;
 	private GameOptions _options; 
+
 	public void PlayGame()
 	{
 		Debug.Log(int.Parse(inputDiceType.captionText.text));

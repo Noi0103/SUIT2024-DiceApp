@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GetDiceFacevalue : MonoBehaviour
+public class GetDiceFaceValue : MonoBehaviour
 {
     // Start is called before the first frame update
     private DiceRandomForce dice;
