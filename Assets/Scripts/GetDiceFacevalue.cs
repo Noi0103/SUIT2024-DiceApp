@@ -11,13 +11,7 @@ public class GetDiceFacevalue : MonoBehaviour
     private GameObject cameraReference;
     void Start()
     {
-        //dice = FindObjectOfType<DiceRandomForce>();
-        
-        //if (GetComponent<Camera>() != null)
-        //{
-        //    cameraReference.transform = GetComponent<Camera>().transform.Find("CameraReference");
-        //   GetComponent<Camera>().transform.position = cameraReference.transform.position;
-        //}
+        dice = FindObjectOfType<DiceRandomForce>();
     }
     
     /// <summary>

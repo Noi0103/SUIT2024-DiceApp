@@ -5,6 +5,6 @@ using UnityEngine;
 [Serializable]
 public class GameOptions
 {
-    public int diceType = 6;
-    public int diceCount = 1;
+    public int diceType;
+    public int diceCount;
 }

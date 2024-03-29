@@ -10,14 +10,18 @@ public class MainMenu : MonoBehaviour
 	private GameOptions _options; 
 	public void PlayGame()
 	{
-		Debug.Log(inputDiceType.captionText.text);
-		_options.diceType = int.Parse(inputDiceType.captionText.text);
+		Debug.Log(int.Parse(inputDiceType.captionText.text));
 		Debug.Log(inputDiceCount.text);
-		_options.diceCount = int.Parse(inputDiceCount.text);
 		Debug.Log(_options);
-		// reload whenever with: PlayerInfo loadedData = DataSaver.loadData<PlayerInfo>("players");
+		_options = new GameOptions
+		{
+			diceType = int.Parse(inputDiceType.captionText.text),
+			diceCount = int.Parse(inputDiceCount.text)
+		};
+
+		// reload whenever with: DataSaver.loadData<GameOptions>("options");
 		DataSaver.saveData(_options, "options");
-		Debug.Log(_options);
+		
 		Debug.Log("Load Level");
 		SceneManager.LoadSceneAsync(1);
 	}
