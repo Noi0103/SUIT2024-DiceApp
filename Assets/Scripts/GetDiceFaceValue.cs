@@ -28,6 +28,10 @@ public class GetDiceFaceValue : MonoBehaviour
             {
                 dice.diceFaceNumber=int.Parse(other.name);
                 Debug.Log(dice.diceFaceNumber);
+                
+                
+                
+                
             }
         }
     }
