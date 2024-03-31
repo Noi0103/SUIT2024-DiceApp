@@ -34,7 +34,7 @@ public class DisplayOptions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("done throwing? "+_prepareLevel.isThrown);
+        //Debug.Log("done throwing? "+_prepareLevel.isThrown);
         if (_prepareLevel.isThrown)
         {
             if (_diceScript == null)
@@ -68,7 +68,7 @@ public class DisplayOptions : MonoBehaviour
                     sum += _resultValues[i]; 
                     _resultText = _resultText + " " + (i+1) + "*" + _resultValues[i];
                 }
-                Debug.Log(_resultText);
+                //Debug.Log(_resultText);
                 _result.text = _resultText + "\tsum(" + sum + ")";
             }
         }

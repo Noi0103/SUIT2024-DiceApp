@@ -46,7 +46,7 @@ public class DiceRandomForce : MonoBehaviour
     private void RollDice()
     {
         forceX = Random.Range(minRandomForce, maxRandomForce);
-        forceY = Random.Range(minRandomForce, maxRandomForce);
+        forceY = Random.Range(0, maxRandomForce);
         forceZ = Random.Range(minRandomForce, maxRandomForce);
         
         m_Rigidbody.AddForce(forceX, forceY, forceZ, ForceMode.Impulse);
