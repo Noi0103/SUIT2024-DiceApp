@@ -14,14 +14,16 @@ public class PrepareLevel : MonoBehaviour
     public GameObject dicePrefab_d10;
     public GameObject dicePrefab_d20;
     public GameObject spawnAreaPlane;
+    public List<GameObject> allDices;
     public float spawnHeight = 3.5f;
     public float minForce = -2.5f;
     public float maxForce = 2.5f;
+    public bool isThrown = false;
     private void Awake()
     {
         _options = DataSaver.loadData<GameOptions>("options");
-        Debug.Log(_options.diceCount);
-        Debug.Log(_options.diceType);
+        Debug.Log("loaded count: "+_options.diceCount);
+        Debug.Log("loaded type: "+_options.diceType);
         
         switch (_options.diceType)
         {
@@ -46,7 +48,6 @@ public class PrepareLevel : MonoBehaviour
         Vector3 pointNegative = new Vector3(planePosition.x - planeSize.x / 2, 0, planePosition.z - planeSize.z / 2);
         Debug.Log("pointPositive"+pointPositive);
         Debug.Log("pointNegative"+pointNegative);
-        Debug.Log(Vector3.Distance(new Vector3(pointPositive.x,0,0), new Vector3(pointNegative.x,0,0)));
         
         // calculate the spacing between points
         float xSpacing = Vector3.Distance(new Vector3(pointPositive.x,0,0), new Vector3(pointNegative.x,0,0)) / (_options.diceCount);
@@ -61,16 +62,16 @@ public class PrepareLevel : MonoBehaviour
             float xCoord = Random.Range(pointNegative.x, pointPositive.x);
             float zCoord = Random.Range(pointNegative.z, pointPositive.z);
             Vector3 point = new Vector3(xCoord, spawnHeight, zCoord);
-            Debug.Log(point);
+            //Debug.Log(point);
             spawnLocations.Add(point);
             
         }
         
-        List<GameObject> allDices = new List<GameObject>();
+        
         for (int i = 0; i < _options.diceCount; i++)
         {
             // spawn and put dices in list
-            Debug.Log("Location: "+spawnLocations[i]);
+            //Debug.Log("Location: "+spawnLocations[i]);
             allDices.Add(Instantiate(_dicePrefab, spawnLocations[i], Quaternion.identity));
             
             Rigidbody rb = allDices[i].AddComponent<Rigidbody>();

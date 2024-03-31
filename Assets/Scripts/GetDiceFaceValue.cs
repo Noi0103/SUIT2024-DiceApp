@@ -6,12 +6,14 @@ using UnityEngine;
 public class GetDiceFaceValue : MonoBehaviour
 {
     // Start is called before the first frame update
-    private DiceRandomForce dice;
-    private Camera mainCamera;
-    private GameObject cameraReference;
+    private DiceRandomForce _randomForceScript;
+    private Camera _mainCamera;
+    private GameObject _cameraReference;
+    private PrepareLevel _prepareLevel;
+    
     void Start()
     {
-        dice = FindObjectOfType<DiceRandomForce>();
+        _prepareLevel = FindFirstObjectByType<PrepareLevel>();
     }
     
     /// <summary>
@@ -22,17 +24,13 @@ public class GetDiceFaceValue : MonoBehaviour
     /// <returns></returns>
     private void OnTriggerStay(Collider other)
     {
-        if (dice != null)
+        var parent = other.transform.parent;
+        if (parent.GetComponent<Rigidbody>().velocity == Vector3.zero)
         {
-            if (dice.GetComponent<Rigidbody>().velocity == Vector3.zero)
-            {
-                dice.diceFaceNumber=int.Parse(other.name);
-                Debug.Log(dice.diceFaceNumber);
-                
-                
-                
-                
-            }
+            Debug.Log("object stationary: "+parent.name);
+            parent.GetComponent<DiceRandomForce>().diceFaceNumber = int.Parse(other.name);
+            
+            _prepareLevel.isThrown = true;
         }
     }
     
