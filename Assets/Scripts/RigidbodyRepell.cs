@@ -28,7 +28,7 @@ public class RigidbodyRepellLocalY : MonoBehaviour
 
         if (otherRigidbody != null)
         {
-            Vector3 repelDirection = transform.right; // Use the local z axis as the repel direction
+            Vector3 repelDirection = transform.forward*-1; // Use the local z axis as the repel direction
             otherRigidbody.AddForce(repelDirection * repellForce, ForceMode.Impulse);
         }
     }
