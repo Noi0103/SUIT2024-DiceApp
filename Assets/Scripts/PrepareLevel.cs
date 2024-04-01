@@ -3,19 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class PrepareLevel : MonoBehaviour
 {
     private GameOptions _options;
     private GameObject _dicePrefab;
-    public GameObject dicePrefab_d4;
-    public GameObject dicePrefab_d6;
-    public GameObject dicePrefab_d10;
-    public GameObject dicePrefab_d20;
+    [FormerlySerializedAs("dicePrefab_d4")] public GameObject dicePrefabD4;
+    [FormerlySerializedAs("dicePrefab_d6")] public GameObject dicePrefabD6;
+    [FormerlySerializedAs("dicePrefab_d10")] public GameObject dicePrefabD10;
+    [FormerlySerializedAs("dicePrefab_d20")] public GameObject dicePrefabD20;
     public GameObject spawnAreaPlane;
     public List<GameObject> allDices;
-    public float spawnHeight = 3.5f;
     public float minForce = -2.5f;
     public float maxForce = 2.5f;
     public bool isThrown = false;
@@ -28,16 +28,16 @@ public class PrepareLevel : MonoBehaviour
         switch (_options.diceType)
         {
             case 4:
-                _dicePrefab = dicePrefab_d4;
+                _dicePrefab = dicePrefabD4;
                 break;
             case 6:
-                _dicePrefab = dicePrefab_d6;
+                _dicePrefab = dicePrefabD6;
                 break;
             case 10:
-                _dicePrefab = dicePrefab_d10;
+                _dicePrefab = dicePrefabD10;
                 break;
             case 20:
-                _dicePrefab = dicePrefab_d20;
+                _dicePrefab = dicePrefabD20;
                 break;
         }
 
@@ -61,7 +61,7 @@ public class PrepareLevel : MonoBehaviour
         {
             float xCoord = Random.Range(pointNegative.x, pointPositive.x);
             float zCoord = Random.Range(pointNegative.z, pointPositive.z);
-            Vector3 point = new Vector3(xCoord, spawnHeight, zCoord);
+            Vector3 point = new Vector3(xCoord, spawnAreaPlane.transform.position.y, zCoord);
             //Debug.Log(point);
             spawnLocations.Add(point);
             

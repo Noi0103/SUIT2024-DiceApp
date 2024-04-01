@@ -2,8 +2,8 @@
 using System.IO;
 using System.Text;
 using UnityEngine;
-using Directory = UnityEngine.Windows.Directory;
-using File = UnityEngine.Windows.File;
+//using Directory = UnityEngine.Windows.Directory;
+//using File = UnityEngine.Windows.File; // this was used in the original but unpleasant for android build
 
 /// <summary>
 /// making savefiles easier

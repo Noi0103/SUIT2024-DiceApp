@@ -7,16 +7,16 @@ using UnityEngine;
 /// </summary>
 public class DiceRandomForce : MonoBehaviour
 {
-    public float minRandomForce = -1f;
-    public float maxRandomForce = 1f;
+    public float minRandomForce;
+    public float maxRandomForce;
     public int diceFaceNumber;
 
-    private float forceX, forceY, forceZ;
-    private Rigidbody m_Rigidbody;
+    private float _forceX, _forceY, _forceZ;
+    private Rigidbody _Rigidbody;
     
     void Start()
     {
-        m_Rigidbody = GetComponent<Rigidbody>();
+        _Rigidbody = GetComponent<Rigidbody>();
     }
     
     void Update()
@@ -24,7 +24,7 @@ public class DiceRandomForce : MonoBehaviour
         // pc input
         if (Input.GetKey("up"))
         {
-            m_Rigidbody.useGravity = true;
+            _Rigidbody.useGravity = true;
             RollDice();
         }
         
@@ -33,7 +33,7 @@ public class DiceRandomForce : MonoBehaviour
         {
             if (touch.phase == TouchPhase.Ended)
             {
-                m_Rigidbody.useGravity = true;
+                _Rigidbody.useGravity = true;
                 RollDice();
             }
         }
@@ -45,11 +45,11 @@ public class DiceRandomForce : MonoBehaviour
     /// <returns></returns>
     private void RollDice()
     {
-        forceX = Random.Range(minRandomForce, maxRandomForce);
-        forceY = Random.Range(0, maxRandomForce);
-        forceZ = Random.Range(minRandomForce, maxRandomForce);
+        _forceX = Random.Range(minRandomForce, maxRandomForce);
+        _forceY = Random.Range(0, 0.5f*maxRandomForce);
+        _forceZ = Random.Range(minRandomForce, maxRandomForce);
         
-        m_Rigidbody.AddForce(forceX, forceY, forceZ, ForceMode.Impulse);
-        m_Rigidbody.AddTorque(forceX, forceY, forceZ, ForceMode.Impulse);
+        _Rigidbody.AddForce(_forceX, _forceY, _forceZ, ForceMode.Impulse);
+        _Rigidbody.AddTorque(2*_forceX, 2*_forceY, 2*_forceZ, ForceMode.Impulse);
     }
 }

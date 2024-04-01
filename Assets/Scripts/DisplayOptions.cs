@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DisplayOptions : MonoBehaviour
@@ -65,12 +66,21 @@ public class DisplayOptions : MonoBehaviour
                 int sum = 0;
                 for (int i = 0; i < _options.diceType; i++)
                 {
-                    sum += _resultValues[i]; 
-                    _resultText = _resultText + " " + (i+1) + "*" + _resultValues[i];
+                    sum += _resultValues[i];
+                    if (_resultValues[i] != 0)
+                    {
+                        _resultText = _resultText + " " + (i + 1) + "*" + _resultValues[i];
+                    }
                 }
                 //Debug.Log(_resultText);
                 _result.text = _resultText + "\tsum(" + sum + ")";
             }
         }
+    }
+
+    public void LoadMenu()
+    {
+        Debug.Log("Load Level");
+        SceneManager.LoadSceneAsync(0);
     }
 }
