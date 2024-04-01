@@ -73,6 +73,7 @@ crashlytics-build.properties
 
 # sonstige 
 /.utmp
+/Assets/Adaptive Performance/
 
 # linux distro
 /result

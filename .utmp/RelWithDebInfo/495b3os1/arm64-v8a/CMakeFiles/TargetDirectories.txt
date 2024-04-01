@@ -1,8 +1,0 @@
-/home/noi/git/SUIT2024-DiceApp/.utmp/RelWithDebInfo/495b3os1/arm64-v8a/CMakeFiles/edit_cache.dir
-/home/noi/git/SUIT2024-DiceApp/.utmp/RelWithDebInfo/495b3os1/arm64-v8a/CMakeFiles/rebuild_cache.dir
-/home/noi/git/SUIT2024-DiceApp/.utmp/RelWithDebInfo/495b3os1/arm64-v8a/GameActivity/CMakeFiles/game.dir
-/home/noi/git/SUIT2024-DiceApp/.utmp/RelWithDebInfo/495b3os1/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
-/home/noi/git/SUIT2024-DiceApp/.utmp/RelWithDebInfo/495b3os1/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
-/home/noi/git/SUIT2024-DiceApp/.utmp/RelWithDebInfo/495b3os1/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
-/home/noi/git/SUIT2024-DiceApp/.utmp/RelWithDebInfo/495b3os1/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
-/home/noi/git/SUIT2024-DiceApp/.utmp/RelWithDebInfo/495b3os1/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir
